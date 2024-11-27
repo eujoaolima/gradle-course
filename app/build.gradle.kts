@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    id("com.dorongold.task-tree") version "4.0.0"
 }
 
 repositories {
@@ -40,4 +41,8 @@ application {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.named<JavaCompile>("compileJava") {
+    this.options.isDebug = false
 }
